@@ -1,0 +1,176 @@
+:root {
+    /* Light theme variables */
+    --bg-primary: #f0f2f5;
+    --bg-container: #ffffff;
+    --text-primary: #1a1f36;
+    --text-secondary: #4f566b;
+    --shadow: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="dark"] {
+    /* Dark theme variables */
+    --bg-primary: #1a1f1b;
+    --bg-container: #242925;
+    --text-primary: #e0e7e0;
+    --text-secondary: #9ea49e;
+    --shadow: rgba(0, 0, 0, 0.15);
+}
+
+body {
+    font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: var(--bg-primary);
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    background-color: var(--bg-container);
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 12px 32px var(--shadow);
+    max-width: 400px;
+    width: 90%;
+}
+
+.timer {
+    font-family: 'SF Mono', 'Roboto Mono', monospace;
+    font-size: 5.5rem;
+    font-weight: 600;
+    margin: 2rem 0;
+    color: var(--text-primary);
+}
+
+.controls button {
+    font-family: inherit;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin: 0 0.5rem;
+    padding: 0.75rem 1.75rem;
+    cursor: pointer;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+#start {
+    background-color: #2e7d32;
+}
+
+#start:hover {
+    background-color: #388e3c;
+    transform: translateY(-1px);
+}
+
+#reset {
+    background-color: #c62828;
+}
+
+#reset:hover {
+    background-color: #d32f2f;
+    transform: translateY(-1px);
+}
+
+#toggle-mode {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: white;
+}
+
+#toggle-mode .material-icons {
+    font-size: 20px;
+}
+
+#toggle-mode.work-mode {
+    background-color: #1b5e20;
+}
+
+#toggle-mode.rest-mode {
+    background-color: #43a047;
+}
+
+#toggle-mode:hover {
+    opacity: 0.9;
+    transform: none;
+}
+
+.controls {
+    margin-top: 1rem;
+}
+
+.mode {
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+#theme-toggle {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 1000;
+}
+
+#theme-toggle:hover {
+    opacity: 0.9;
+}
+
+h1 {
+    color: var(--text-primary);
+}
+
+/* Add this new class for the document title */
+.document-title {
+    display: none; /* Hidden element just for maintaining the timer text */
+}
+
+.toast {
+    visibility: hidden;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--background-secondary);
+    color: var(--text-primary);
+    padding: 16px 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    transition: visibility 0.5s, opacity 0.5s;
+    opacity: 0;
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+} 
