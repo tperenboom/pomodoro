@@ -90,15 +90,19 @@ function pauseTimer() {
 function resetTimer() {
     clearInterval(timerId);
     timerId = null;
-    isWorkTime = true;
-    timeLeft = WORK_TIME;
+    timeLeft = isWorkTime ? WORK_TIME : BREAK_TIME;
     startButton.textContent = 'Start';
-    modeText.textContent = 'Work Time';
+    modeText.textContent = isWorkTime ? 'Work Time' : 'Break Time';
     
-    // Reset toggle button to work mode
-    toggleButton.classList.remove('rest-mode');
-    toggleButton.classList.add('work-mode');
-    toggleButton.querySelector('.material-icons').textContent = 'self_improvement';
+    if (isWorkTime) {
+        toggleButton.classList.remove('rest-mode');
+        toggleButton.classList.add('work-mode');
+        toggleButton.querySelector('.material-icons').textContent = 'self_improvement';
+    } else {
+        toggleButton.classList.remove('work-mode');
+        toggleButton.classList.add('rest-mode');
+        toggleButton.querySelector('.material-icons').textContent = 'work';
+    }
     
     updateDisplay(timeLeft);
 }
