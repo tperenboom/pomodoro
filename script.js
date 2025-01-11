@@ -12,7 +12,7 @@ const themeToggle = document.getElementById('theme-toggle');
 const themeIcon = themeToggle.querySelector('.material-icons');
 
 const WORK_TIME = 25 * 60; // 25 minutes in seconds
-const BREAK_TIME = 0.1 * 60; // 5 minutes in seconds
+const BREAK_TIME = 5 * 60; // 5 minutes in seconds
 const toast = document.getElementById('toast');
 
 // Request notification permission when the page loads
